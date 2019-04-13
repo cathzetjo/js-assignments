@@ -36,3 +36,10 @@ node_modules
 # Editors crap
 .vscode
 .idea
+
+#json
+package.json
+package-lock.json
+
+#temporary
+tmp.js
