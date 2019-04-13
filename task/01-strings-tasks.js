@@ -8,7 +8,6 @@
  ********************************************************************************************/
 
 
-
 /**
  * Returns the result of concatenation of two strings.
  *
@@ -23,7 +22,7 @@
  */
 function concatenateStrings(value1, value2) {
 
-    return value1.concat(value2);
+  return value1.concat(value2);
 
 }
 
@@ -40,7 +39,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-    return value.length;
+  return value.length;
 }
 
 /**
@@ -58,10 +57,10 @@ function getStringLength(value) {
  */
 function getStringFromTemplate(firstName, lastName) {
 
-    const greet = 'Hello,';
-    const sign = "!";
-    const result = `${greet} ${firstName} ${lastName}${sign}`;
-    return result;
+  const greet = 'Hello,';
+  const sign = "!";
+  const result = `${greet} ${firstName} ${lastName}${sign}`;
+  return result;
 }
 
 /**
@@ -75,7 +74,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    return value.slice(7,value.length-1);
+  return value.slice(7, value.length - 1);
 }
 
 
@@ -90,7 +89,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-    return value.slice(0,1);
+  return value.slice(0, 1);
 }
 
 /**
@@ -105,7 +104,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    return value.trim();
+  return value.trim();
 }
 
 /**
@@ -120,12 +119,12 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-   return value.repeat(count);
+  return value.repeat(count);
 }
 
 /**
  * Remove the first occurrence of string inside another string
- * 
+ *
  * @param {string} str
  * @param {string} value
  * @return {string}
@@ -136,7 +135,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-   return str.replace(value,'');
+  return str.replace(value, '');
 }
 
 /**
@@ -152,7 +151,7 @@ function removeFirstOccurrences(str, value) {
  */
 function unbracketTag(str) {
 
-    return str.slice(1,str.length-1);
+  return str.slice(1, str.length - 1);
 }
 
 
@@ -167,7 +166,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    return str.toUpperCase();
+  return str.toUpperCase();
 }
 
 /**
@@ -181,7 +180,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    return str.split(';');
+  return str.split(';');
 }
 
 /**
@@ -207,22 +206,22 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-    const repeatHorizNum = width - 2;
-    const repeatVertNum = height - 2;
-    const leftTopCorner = String.fromCharCode(0x250C);      //   ┌
-    const horizontalLine = String.fromCharCode(0x2500);     //    ─
-    const rightTopCorner = String.fromCharCode(0x2510);     //    ┐
-    const backspace = String.fromCharCode(0x0020);          //   ' '
-    const verticalLine = String.fromCharCode(0x2502);       //   │
-    const leftDownCorner = String.fromCharCode(0x2514);     //   └
-    const rightDownCorner = String.fromCharCode(0x2518);    //       ┘
+function getRectangleString(width, height) {    //// Table: https://en.wikipedia.org/wiki/Box-drawing_character, https://www.unicode.org/charts/PDF/U2500.pdf
+  const repeatHorizNum = width - 2;
+  const repeatVertNum = height - 2;
+  const leftTopCorner = String.fromCharCode(0x250C);      //   ┌
+  const horizontalLine = String.fromCharCode(0x2500);     //    ─
+  const rightTopCorner = String.fromCharCode(0x2510);     //    ┐
+  const backspace = String.fromCharCode(0x0020);          //   ' '
+  const verticalLine = String.fromCharCode(0x2502);       //   │
+  const leftDownCorner = String.fromCharCode(0x2514);     //   └
+  const rightDownCorner = String.fromCharCode(0x2518);    //       ┘
 
-    const firstLine = leftTopCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightTopCorner.concat("\n")));
-    const secondLine = (verticalLine.concat(backspace.repeat(repeatHorizNum).concat(verticalLine.concat("\n")))).repeat(repeatVertNum);
-    const lastLine = leftDownCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightDownCorner.concat("\n")));
+  const firstLine = leftTopCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightTopCorner.concat("\n")));
+  const secondLine = (verticalLine.concat(backspace.repeat(repeatHorizNum).concat(verticalLine.concat("\n")))).repeat(repeatVertNum);
+  const lastLine = leftDownCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightDownCorner.concat("\n")));
 
-    return firstLine+secondLine+lastLine;
+  return firstLine + secondLine + lastLine;
 }
 
 
@@ -242,8 +241,15 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+  let pattern = /([A-Z])/gi;
+
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const index = item => input.charAt(output.indexOf(item));
+  return str.replace(pattern, index);
+
 }
+
 
 /**
  * Returns true if the value is string; otherwise false.
@@ -259,53 +265,53 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
 
 
 /**
  * Returns playid card id.
- * 
+ *
  * Playing cards inittial deck inclides the cards in the following order:
- * 
+ *
  *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
  *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
  *  'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
  *  'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'
- * 
+ *
  * (see https://en.wikipedia.org/wiki/Standard_52-card_deck)
  * Function returns the zero-based index of specified card in the initial deck above.
- * 
+ *
  * @param {string} value
  * @return {number}
  *
  * @example
  *   'A♣' => 0
- *   '2♣' => 1 
+ *   '2♣' => 1
  *   '3♣' => 2
  *     ...
  *   'Q♠' => 50
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
 
 
 module.exports = {
-    concatenateStrings: concatenateStrings,
-    getStringLength: getStringLength,
-    getStringFromTemplate: getStringFromTemplate,
-    extractNameFromTemplate: extractNameFromTemplate,
-    getFirstChar: getFirstChar,
-    removeLeadingAndTrailingWhitespaces: removeLeadingAndTrailingWhitespaces,
-    repeatString: repeatString,
-    removeFirstOccurrences: removeFirstOccurrences,
-    unbracketTag: unbracketTag,
-    convertToUpperCase: convertToUpperCase,
-    extractEmails: extractEmails,
-    getRectangleString: getRectangleString,
-    encodeToRot13: encodeToRot13,
-    isString: isString,
-    getCardId: getCardId
+  concatenateStrings: concatenateStrings,
+  getStringLength: getStringLength,
+  getStringFromTemplate: getStringFromTemplate,
+  extractNameFromTemplate: extractNameFromTemplate,
+  getFirstChar: getFirstChar,
+  removeLeadingAndTrailingWhitespaces: removeLeadingAndTrailingWhitespaces,
+  repeatString: repeatString,
+  removeFirstOccurrences: removeFirstOccurrences,
+  unbracketTag: unbracketTag,
+  convertToUpperCase: convertToUpperCase,
+  extractEmails: extractEmails,
+  getRectangleString: getRectangleString,
+  encodeToRot13: encodeToRot13,
+  isString: isString,
+  getCardId: getCardId
 };
