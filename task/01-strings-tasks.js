@@ -247,7 +247,6 @@ function encodeToRot13(str) {
   const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
   const index = item => input.charAt(output.indexOf(item));
   return str.replace(pattern, index);
-
 }
 
 
@@ -265,7 +264,15 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  throw new Error('Not implemented');
+  if (value === undefined || value === null) {
+    return false;
+  }
+
+  if ((typeof value === typeof (value.toString())) || (value instanceof String)) {
+    return true
+  } else {
+    return false
+  }
 }
 
 
