@@ -208,7 +208,21 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    const repeatHorizNum = width - 2;
+    const repeatVertNum = height - 2;
+    const leftTopCorner = String.fromCharCode(0x250C);      //   ┌
+    const horizontalLine = String.fromCharCode(0x2500);     //    ─
+    const rightTopCorner = String.fromCharCode(0x2510);     //    ┐
+    const backspace = String.fromCharCode(0x0020);          //   ' '
+    const verticalLine = String.fromCharCode(0x2502);       //   │
+    const leftDownCorner = String.fromCharCode(0x2514);     //   └
+    const rightDownCorner = String.fromCharCode(0x2518);    //       ┘
+
+    const firstLine = leftTopCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightTopCorner.concat("\n")));
+    const secondLine = (verticalLine.concat(backspace.repeat(repeatHorizNum).concat(verticalLine.concat("\n")))).repeat(repeatVertNum);
+    const lastLine = leftDownCorner.concat(horizontalLine.repeat(repeatHorizNum).concat(rightDownCorner.concat("\n")));
+
+    return firstLine+secondLine+lastLine;
 }
 
 
