@@ -244,7 +244,7 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
 
-  return arr.map((item,index)=>arr.slice(0,index+1).reduce((a,b)=>a+b))
+  return arr.map((item, index) => arr.slice(0, index + 1).reduce((a, b) => a + b))
 }
 
 /**
@@ -296,7 +296,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  return arr.sort((a, b)=>a-b).reverse().slice(0, 3);
+  return arr.sort((a, b) => a - b).reverse().slice(0, 3);
 }
 
 
@@ -314,7 +314,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  const newArr = arr.filter(item=> ((typeof item === "number") && (item>0)));
+  const newArr = arr.filter(item => ((typeof item === "number") && (item > 0)));
   return newArr.length;
 }
 
@@ -370,7 +370,7 @@ function getItemsSum(arr) {
  */
 function getFalsyValuesCount(arr) {
   let newArr = arr.filter(Boolean);
-  let leng = arr.length-newArr.length;
+  let leng = arr.length - newArr.length;
   return leng;
 }
 
@@ -390,7 +390,7 @@ function getFalsyValuesCount(arr) {
  */
 function findAllOccurences(arr, item) {
 
-  const newArr = arr.filter(element=>element===item);
+  const newArr = arr.filter(element => element === item);
   return newArr.length;
 
 }
@@ -436,7 +436,8 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-  throw new Error('Not implemented');
+
+  return arr.sort((a, b) => a.country > b.country ? 1 : a.country === b.country && a.city > b.city ? 1 : -1);
 }
 
 /**
@@ -580,8 +581,8 @@ function getElementByIndexes(arr, indexes) {
  *
  */
 function swapHeadAndTail(arr) {
-  const center = arr.length/2;
-  return [...arr.slice(-center),...arr.slice(center,-center),...arr.slice(0,center)]
+  const center = arr.length / 2;
+  return [...arr.slice(-center), ...arr.slice(center, -center), ...arr.slice(0, center)]
 }
 
 
