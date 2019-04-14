@@ -76,10 +76,9 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-  let sum=0;
-  for (let i = n1; i<n2+1; i++)
-  {
-    sum=sum+i;
+  let sum = 0;
+  for (let i = n1; i < n2 + 1; i++) {
+    sum = sum + i;
   }
   return sum;
 }
@@ -100,8 +99,11 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-  if (a+b>c && b+c>a && c+a>b) {return true;}
-  else {return false;}
+  if (a + b > c && b + c > a && c + a > b) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -185,7 +187,12 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  throw new Error('Not implemented');
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === i && !str.includes(str[i], i + 1)) {
+      return str[i];
+    }
+  }
+    return null;
 }
 
 
