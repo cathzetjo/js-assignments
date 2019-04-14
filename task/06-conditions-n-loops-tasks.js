@@ -171,7 +171,7 @@ function doRectanglesOverlap(rect1, rect2) {
  *
  */
 function isInsideCircle(circle, point) {
-  return Math.hypot(circle.center.x - point.x, circle.center.y - point.y) < circle.radius;
+  throw new Error('Not implemented');
 }
 
 
