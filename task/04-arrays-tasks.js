@@ -40,7 +40,9 @@ function findElement(arr, value) {
 function generateOdds(len) {
 
   const fullArr = Array.from(Array(len * 2).keys());
-  const oddArr = fullArr.filter(item => { return item & 1 === 1;});
+  const oddArr = fullArr.filter(item => {
+    return item & 1 === 1;
+  });
   return oddArr;
 
 }
@@ -76,7 +78,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return arr.filter(item=>item>0);
+  return arr.filter(item => item > 0);
 }
 
 /**
@@ -91,7 +93,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   return arr.filter(item=> typeof item === 'string');
+  return arr.filter(item => typeof item === 'string');
 }
 
 /**
@@ -137,7 +139,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  return arr.map(item=> item.length);
+  return arr.map(item => item.length);
 }
 
 /**
@@ -181,7 +183,7 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-  return arr.splice(arr.length-n);
+  return arr.splice(arr.length - n);
 }
 
 
@@ -221,7 +223,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map(item=>item*item);
+  return arr.map(item => item * item);
 }
 
 
@@ -255,7 +257,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter((item, index)=> (index&1===1));
+  return arr.filter((item, index) => (index & 1 === 1));
 }
 
 
@@ -343,7 +345,11 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  throw new Error('Not implemented');
+  if (arr.length === 0) {
+    return arr.length;
+  } else {
+    return arr.reduce((acc, item) => acc + item);
+  }
 }
 
 /**
