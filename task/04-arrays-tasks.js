@@ -365,7 +365,9 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  throw new Error('Not implemented');
+  let newArr = arr.filter(Boolean);
+  let leng = arr.length-newArr.length;
+  return leng;
 }
 
 /**
