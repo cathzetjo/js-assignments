@@ -192,7 +192,7 @@ function findFirstSingleChar(str) {
       return str[i];
     }
   }
-    return null;
+  return null;
 }
 
 
@@ -296,7 +296,12 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-  throw new Error('Not implemented');
+  const array = num.toString().split('').map(x => parseInt(x)).reduce((a, b) => a + b);
+  if (array.toString().length > 1) {
+    return getDigitalRoot(array);
+  } else {
+    return array;
+  }
 }
 
 
